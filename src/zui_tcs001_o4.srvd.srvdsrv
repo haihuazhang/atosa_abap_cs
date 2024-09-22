@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition for ZC_TCS001'
+define service ZUI_TCS001_O4 {
+  expose ZC_TCS001 as IssueGroup;
+  expose ZC_TCS002 as Issue;
+  expose ZC_TCS003 as DropDownContent;
+}

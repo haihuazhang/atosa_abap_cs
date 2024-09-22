@@ -1,0 +1,92 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'CDS for Equipment Integration'
+define root view entity ZR_SCS012
+  as select from    I_Equipment as _Equipment
+    left outer join ZR_SCS013 on  ZR_SCS013.Product      = _Equipment.Material
+                              and ZR_SCS013.SerialNumber = _Equipment.SerialNumber
+  //    left outer join ZR_SCS014 on ZR_SCS014.Product = _Equipment.Material
+    left outer join I_Product on I_Product.Product = _Equipment.Material
+  //    left outer join I_ProductSalesDelivery as _ProductSalesDelivery
+  //                                on
+  //composition of target_data_source_name as _association_name
+{
+  key _Equipment.Equipment,
+      //    EquipmentOID,
+      //    EquipmentCategory,
+      //    TechnicalObjectType,
+      //    Plant,
+      //      _Equipment.Division,
+      //    StorageLocation,
+      _Equipment.CreatedByUser,
+      _Equipment.LastChangedByUser,
+      _Equipment.CreationDate,
+      _Equipment.LastChangeDate,
+      //    AssetManufacturerName,
+      //    ManufacturerPartTypeName,
+      //    ManufacturerCountry,
+      //    ConstructionYear,
+      //    ConstructionMonth,
+      //    AcquisitionDate,
+      //    Currency,
+      //    AcquisitionValue,
+      //    MaintObjectInternalID,
+      _Equipment.SerialNumber,
+      //    EquipUsagePeriodSequenceNumber,
+      _Equipment.Material,
+      //    Customer,
+      //    AuthorizationGroup,
+      _Equipment.ManufacturerSerialNumber,
+      //    UniqueItemIdentifier,
+      //    UniqueItemIdentifierStrucType,
+      //    UniqueItemIdentifierRespPlant,
+      //    AssetSynchronizationRule,
+      //    InventoryNumber,
+      //    GrossWeight,
+      //    GrossWeightUnit,
+      //    SizeOrDimensionText,
+      //    Batch,
+      //    OperationStartDate,
+      //    Supplier,
+      //    HasEquipmentData,
+      //    EquipmentHasStockInformation,
+      //    MasterWarranty,
+      _Equipment.LastChangeDateTime,
+      ZR_SCS013.OldSerialNumber,
+      _Equipment._EquipmentText[1:Language=$session.system_language].EquipmentName,
+      //      ZR_SCS014.ProductGroup
+      I_Product.ProductGroup
+      //    EquipmentFirstDeliveryDate,
+      //    ValidityStartDate,
+      //    ValidityEndDate,
+      //    MatlSrlNmbrLastGdsMvtDte,
+      //    EquipmentEndOfUseDate,
+      //    YY1_ZMaulWrtValToDate_IEQ,
+      //    YY1_ZMaulWrtActStatus_IEQ,
+      /* Associations */
+      //    _Batch,
+      //    _CreatedByUser,
+      //    _Currency,
+      //    _CurrentTimeSegment,
+      //    _Customer,
+      //    _Division,
+      //    _EquipmentCategory,
+      //    _EquipmentText,
+      //    _EquipmentTimeSeg,
+      //    _GrossWeightUnit,
+      //    _LastChangedByUser,
+      //    _LinearAssetManagementData,
+      //    _ManufacturerCountry,
+      //    _MasterWarranty,
+      //    _MasterWrntyObjectAssgmt,
+      //    _Material,
+      //    _Plant,
+      //    _PlantMaintenancePartner,
+      //    _SerialNumberStockSegment,
+      //    _Status,
+      //    _StockSegment,
+      //    _StorageLocation,
+      //    _Supplier,
+      //    _TechnicalObjectType,
+      //    _YY1_ZMaulWrtActStatus_IEQ,
+      //    _association_name // Make association public
+}

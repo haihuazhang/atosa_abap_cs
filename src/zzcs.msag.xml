@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZZCS</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class of CS</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZZCS</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>This parts with serial number &amp;1 does not exist in Plant &amp;1 Storage &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZZCS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>This parts does not exist in Plant &amp;1 Storage &amp;2, please check!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZZCS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>This parts is lacking quantity in Plant &amp;1 Storage &amp;2, please check!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZZCS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Please enter correct sales order number!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZZCS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Please enter correct sales order number item!</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

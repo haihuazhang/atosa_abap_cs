@@ -1,0 +1,16 @@
+@EndUserText.label: 'Service definition for ZC_TCS004'
+define service ZUI_TCS004_O4 {
+  expose ZC_TCS004           as ServiceOrderIssueGroup;
+  expose ZC_TCS005           as ServiceOrderIssue;
+  expose ZC_TCS001           as IssueGroup;
+  expose ZC_TCS002           as Issue;
+  expose ZC_TCS003           as DropDownContent;
+  expose I_ServiceDocument;
+  expose ZZR_WARRANTY_REPORT;
+  expose ZR_SCS011;
+  expose ZC_TCS013;
+  expose ZC_TCS014;
+  expose ZR_SCS007;
+  expose ZR_SCS002;
+  expose I_Region;
+}

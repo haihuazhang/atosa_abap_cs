@@ -1,0 +1,204 @@
+managed implementation in class ZBP_R_TCS015 unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_TCS015
+persistent table ztcs015
+draft table ztcs015_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly )
+  UUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+
+  field ( numbering : managed )
+  UUID;
+
+  create;
+  update;
+  delete;
+
+  association _Shipping { create; with draft; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ztcs015
+    {
+      UUID               = uuid;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}
+
+
+
+define behavior for ZR_TCS016 implementation in class ZBP_R_TCS016 unique
+persistent table ztcs016
+draft table ztcs016_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+//lock master total etag LastChangedAt
+//authorization master( global )
+
+{
+  field ( readonly ) ParentUUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt,
+  Dealer
+  ;
+  field ( numbering : managed, readonly ) UUID;
+
+  field ( mandatory )
+  ShipToCustomerOrTech,
+  ShippingMethod,
+//  Dealer,
+  SalesOrganization,
+  ContactName,
+  ContactPhone,
+  Address,
+  City,
+  State,
+  Zip;
+
+
+  //  create;
+  update;
+  delete;
+  association _Header { with draft; }
+  association _Parts { create; with draft; }
+
+  //  side effects { $self affects field  Dealer ; }
+  side effects { field ShipToCustomerOrTech affects $self; }
+  determination determinInitFields on modify { create; field ShipToCustomerOrTech; }
+
+  validation checkMandatoryFields on save { create; update; }
+
+  //  draft action Edit;
+  //  draft action Activate optimized;
+  //  draft action Discard;
+  //  draft action Resume;
+  //  draft determine action Prepare;
+
+  mapping for ztcs016
+    {
+      UUID                 = uuid;
+      ParentUUID           = parent_uuid;
+      ShipToCustomerOrTech = ship_to_customer_or_tech;
+      ShippingMethod       = shipping_method;
+      Dealer               = dealer;
+      SalesOrganization    = sales_organization;
+      ContactName          = contact_name;
+      ContactPhone         = contact_phone;
+      Address              = address;
+      Address2             = address_2;
+      City                 = city;
+      State                = state;
+      Zip                  = zip;
+      CreatedBy            = created_by;
+      CreatedAt            = created_at;
+      LastChangedBy        = last_changed_by;
+      LastChangedAt        = last_changed_at;
+      LocalLastChangedAt   = local_last_changed_at;
+    }
+}
+
+
+
+define behavior for ZR_TCS017 implementation in class ZBP_R_TCS017 unique
+persistent table ztcs017
+draft table ztcs017_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+//lock master total etag LastChangedAt
+//authorization master( global )
+
+{
+  field ( readonly ) ParentUUID, RootUUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt,
+  PartsApplicationStatus,
+  SubmitDate
+  ;
+
+  field ( numbering : managed, readonly ) UUID;
+
+
+  field ( mandatory )
+  ItemNo,
+  Product,
+  Quantity,
+  Unit,
+  Plant,
+  StorageLocation;
+
+
+
+
+  association _Header { with draft; }
+  association _Shipping { with draft; }
+
+  //  create;
+  update;
+  delete;
+
+
+  determination determineItemNo on modify { create; }
+  determination determineStatus on save { create; }
+
+  determination determineStatusInDraft on modify { update; }
+
+  determination determineQuantityBySN on modify { field SerialNumber; }
+  side effects { field SerialNumber affects field Quantity; }
+
+  validation checkItemFields on save { create; update; }
+
+  //  draft action Edit;
+  //  draft action Activate optimized;
+  //  draft action Discard;
+  //  draft action Resume;
+  //  draft determine action Prepare;
+
+  mapping for ztcs017
+    {
+      UUID                   = uuid;
+      ParentUUID             = parent_uuid;
+      RootUUID               = root_uuid;
+      ItemNo                 = item_no;
+      Product                = product;
+      Quantity               = quantity;
+      Unit                   = unit;
+      SerialNumber           = serial_number;
+      Plant                  = plant;
+      StorageLocation        = storage_location;
+      SoNumber               = so_number;
+      SoItem                 = so_item;
+      PartsApplicationStatus = parts_application_status;
+      SubmitDate             = submit_date;
+      CreatedBy              = created_by;
+      CreatedAt              = created_at;
+      LastChangedBy          = last_changed_by;
+      LastChangedAt          = last_changed_at;
+      LocalLastChangedAt     = local_last_changed_at;
+    }
+}

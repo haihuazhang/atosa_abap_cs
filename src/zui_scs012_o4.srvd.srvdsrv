@@ -1,0 +1,4 @@
+@EndUserText.label: 'Equipment Integration'
+define service ZUI_SCS012_O4 {
+  expose ZR_SCS012 as Equipment;
+}

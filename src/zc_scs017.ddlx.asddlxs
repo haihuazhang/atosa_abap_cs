@@ -1,0 +1,116 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Service Order',
+    typeNamePlural: 'Service Order'
+  },
+  presentationVariant: [ {
+    sortOrder: [ { by: 'ServiceDocument', direction: #ASC },
+                 { by: 'ServiceDocumentItem', direction: #ASC } ],
+    visualizations: [ { type: #AS_LINEITEM } ]
+  } ]
+}
+annotate view ZC_SCS017 with
+{
+
+  @UI.lineItem: [ { position: 10 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @UI.selectionField: [{ position: 05 }]
+  @EndUserText.label: 'Service Order'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ServiceDocument', element: 'ServiceDocument' } } ]
+  @Consumption.semanticObject: 'ServiceOrder'
+  @Consumption.semanticObjectMapping.additionalBinding: [{ element: 'ServiceOrder', localElement: 'ServiceDocument' }]
+  ServiceDocument;
+
+  @UI.lineItem: [ { position: 20 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Service Order Item'
+  ServiceDocumentItem;
+
+  @UI.lineItem: [ { position: 30 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Service Call'
+  ServiceDocSuccessor;
+
+  @UI.lineItem: [ { position: 40 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Service Activity'
+  YY1_Activity_SRI;
+
+  @UI.lineItem: [ { position: 50 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Creation Date'
+  ServiceDocumentCreationDate;
+
+  @UI.lineItem: [ { position: 60 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Created By'
+  ServiceDocumentCreatedByUser;
+
+  @UI.lineItem: [ { position: 70 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Technician ID'
+  TechnicianID;
+
+  @UI.lineItem: [ { position: 80 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Technician Name'
+  TechnicianName;
+
+  @UI.lineItem: [ { position: 90 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'Product'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ProductTP_2', element: 'Product' } } ]
+  ReferenceProduct;
+
+  @UI.lineItem: [ { position: 100 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Product Group'
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_ProductGroup_2', element: 'ProductGroup' } } ]
+  ProductGroup;
+
+  @UI.lineItem: [ { position: 110 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Serial Number'
+  SerialNumber;
+
+  @UI.lineItem: [ { position: 120 , importance: #MEDIUM } ]
+  @UI.selectionField: [{ position: 30 }]
+  @EndUserText.label: 'Old Serial Number'
+  OldSerialNumber;
+
+  @UI.lineItem: [ { position: 130 , importance: #MEDIUM, cssDefault.width: '12rem' } ]
+  @EndUserText.label: 'Usage Duration(Day)'
+  UsageDurationByDate;
+
+  @UI.lineItem: [ { position: 140 , importance: #MEDIUM } ]
+  @EndUserText.label: 'Usage Duration(Month)'
+  UsageDurationByMonth;
+
+  @UI.lineItem: [ { position: 150 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Replacement?(Yes/No)'
+  YY1_Replacement_SRH;
+
+  @UI.lineItem: [ { position: 170 , importance: #MEDIUM, cssDefault.width: '20rem' } ]
+  @EndUserText.label: 'In/Out of Warranty'
+  YY1_InorOutofWarranty_SRH;
+
+  @UI.lineItem: [ { position: 180 , importance: #MEDIUM, cssDefault.width: '30rem' } ]
+  @UI.selectionField: [{ position: 50 }]
+  @EndUserText.label: 'Replace Reason'
+  YY1_ReplaceReason_SRH;
+
+  @UI.lineItem: [ { position: 190 , importance: #MEDIUM, cssDefault.width: '12rem' } ]
+  @EndUserText.label: 'Resolution Code Level 1'
+  YY1_ResolutionCode1_SRI;
+
+  @UI.lineItem: [ { position: 200 , importance: #MEDIUM, cssDefault.width: '12rem' } ]
+  @EndUserText.label: 'Resolution Code Level 2'
+  YY1_ResolutionCode2_SRI;
+
+  //  @UI.lineItem: [ { position: 210 , importance: #MEDIUM } ]
+  //  @EndUserText.label: 'Parts Amount CBFD'
+
+  @UI.lineItem: [ { position: 220 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'PO Number'
+  ServiceDocumentLongText;
+
+  @UI.lineItem: [ { position: 230 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Labor Hour'
+  LaborHour;
+
+  @UI.lineItem: [ { position: 240 , importance: #MEDIUM, cssDefault.width: '10rem' } ]
+  @EndUserText.label: 'Travel Hour'
+  TravelHour;
+}

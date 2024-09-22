@@ -1,0 +1,70 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'IssueGroup',
+    typeNamePlural: 'IssueGroups'
+  }
+}
+annotate view ZC_TCS001 with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'IssueGroup',
+    position: 10
+  },{ id:            'Issue',
+                purpose:       #STANDARD,
+                type:          #LINEITEM_REFERENCE,
+                label:         'Issue',
+                position:      20,
+                targetElement: '_Issue'} ]
+  @UI.hidden: true
+  UUID;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: ''
+  } ]
+  IssueCategory;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: ''
+  } ]
+  IssueGroup;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Video Required'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Video Required'
+  } ]
+  VideoRequired;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Picture Required'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'Picture Required'
+  } ]
+  PictureRequired;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Quality Report'
+define service ZUI_SCS017_O4 {
+  expose ZC_SCS017;
+}

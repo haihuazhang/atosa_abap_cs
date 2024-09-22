@@ -1,0 +1,125 @@
+managed implementation in class ZBP_R_TCS001 unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_TCS001 alias IssueGroup
+implementation in class ZBP_R_TCS001 unique
+persistent table ztcs001
+draft table ztcs001_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly )
+  UUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+
+  field ( numbering : managed )
+  UUID;
+
+
+  create;
+  update;
+  delete;
+
+    association _Issue { create ; with draft; }
+
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ztcs001
+    {
+      UUID               = uuid;
+      IssueCategory      = issue_category;
+      IssueGroup         = issue_group;
+      VideoRequired      = video_required;
+      PictureRequired    = picture_required;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}
+
+
+define behavior for ZR_TCS002 alias Issue
+implementation in class ZBP_R_TCS002 unique
+persistent table ztcs002
+draft table ztcs002_d
+lock dependent by _IssueGroup
+authorization dependent by _IssueGroup
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  association _DropDownContent { create; with draft;  }
+  association _IssueGroup { with draft; }
+
+
+  field ( readonly ) IssueGroupUUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+  field ( numbering : managed, readonly ) UUID;
+  mapping for ztcs002
+    {
+      UUID               = uuid;
+      IssueGroupUUID     = parent_uuid;
+      IssueContent       = issue_content;
+      IssueCType          = issue_type;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}
+
+
+
+define behavior for ZR_TCS003 alias DropDownContent
+implementation in class ZBP_R_TCS003 unique
+persistent table ztcs003
+draft table ztcs003_d
+lock dependent by _IssueGroup
+authorization dependent by _IssueGroup
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  //  association _DropDownContent { create; }
+  association _IssueGroup { with draft; }
+  association _Issue{ with draft; }
+
+  field ( readonly ) IssueGroupUUID, IssueUUID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+  field ( numbering : managed, readonly ) UUID;
+  mapping for ztcs003
+    {
+      UUID               = uuid;
+      IssueUUID          = parent_uuid;
+      IssueGroupUUID     = root_uuid;
+      DropdownContent    = dropdown_content;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}

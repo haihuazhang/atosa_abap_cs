@@ -1,0 +1,49 @@
+@Metadata.layer: #CORE
+annotate entity ZC_TCS002 with
+{
+  @UI.facet: [ {
+  id: 'idIdentification',
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Issue',
+  position: 10
+  } ,{ id:            'DropDownContent',
+                 purpose:       #STANDARD,
+                 type:          #LINEITEM_REFERENCE,
+                 label:         'DropDown Content',
+                 position:      20,
+                 targetElement: '_DropDownContent'} ]
+  @UI.hidden: true
+  UUID;
+  @UI.hidden: true
+  IssueGroupUUID;
+  @UI.lineItem: [ {
+  position: 20 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: ''
+  } ]
+  IssueContent;
+  @UI.lineItem: [ {
+  position: 30 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: ''
+  } ]
+  IssueCType;
+  //  CreatedBy;
+  //  CreatedAt;
+  //  LastChangedBy;
+  //  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+  /* Associations */
+  //    _DropDownContent;
+  //    _IssueGroup;
+
+}

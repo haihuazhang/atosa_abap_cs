@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZZDCS022</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000010</LENG>
+    <OUTPUTLEN>000020</OUTPUTLEN>
+    <LOWERCASE>X</LOWERCASE>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>ZBrandName</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZZDCS022</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DC Locker</DOMVALUE_L>
+     <DDTEXT>DC Locker</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZZDCS022</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SirL</DOMVALUE_L>
+     <DDTEXT>Sir Lawrence</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZZDCS022</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>Padela</DOMVALUE_L>
+     <DDTEXT>Padela</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZZDCS022</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>Culitek</DOMVALUE_L>
+     <DDTEXT>Culitek</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZZDCS022</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>Berg</DOMVALUE_L>
+     <DDTEXT>Berg</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZZDCS022</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>Kitma</DOMVALUE_L>
+     <DDTEXT>Kitma</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

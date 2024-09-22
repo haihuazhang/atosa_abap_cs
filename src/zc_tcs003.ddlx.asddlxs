@@ -1,0 +1,32 @@
+@Metadata.layer: #CORE
+annotate entity ZC_TCS003 with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'DropDown Content',
+    position: 10
+    }]
+  UUID;
+  @UI.hidden:true
+  IssueGroupUUID;
+  @UI.hidden:true
+  IssueUUID;
+  @UI.lineItem: [ {
+  position: 20 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: ''
+  } ]
+  DropdownContent;
+
+  @UI.hidden:true
+  LocalLastChangedAt;
+  /* Associations */
+  //  _Issue;
+  //  _IssueGroup;
+
+}

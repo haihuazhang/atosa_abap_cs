@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service definition for ZC_TCS015'
+define service ZUI_TCS015_O4 {
+  expose ZC_TCS015;
+  expose ZC_TCS016;
+  expose ZC_TCS017;
+  expose I_ProductText;
+  expose ZR_sCS022;
+}
